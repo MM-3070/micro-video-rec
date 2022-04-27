@@ -157,7 +157,7 @@ for epoch in range(1):
                 uid.extend(val_uid)
                 m = np.hstack((np.array([t.numpy() for t in uid]).reshape(-1,1),np.array(result).reshape(-1,1)))
                 n = np.hstack((m,np.array(result_ans).reshape(-1,1)))
-                #print(n.shape)
+                
                 p_matrix = np.vstack((p_matrix,n))
             val_auc = roc_auc_score(p_matrix[:,-1],p_matrix[:,-2])
             logloss = logloss_cal(np.array(p_matrix[:,-1]),np.array(p_matrix[:,-2])+0.00005)
