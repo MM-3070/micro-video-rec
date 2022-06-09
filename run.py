@@ -129,7 +129,7 @@ z_neg = scipy_sparse_mat_to_torch_sparse_tensor(neg_a_normed)
 
 model = Cliprec(clip_em,z_pos,z_neg,u_num,video_num,total_u_id_list,total_v_id_list,step_train=True).cuda()
 model.load_state_dict(torch.load('model0.pth'))
-dataset_val = CliprecDataset(num_frm=3,ensemble_n_clips=4,num_labels=4,datadir='./sampled.csv',videodir='./micro_video2', visual_feature_dir = './fast_video_feature')
+dataset_val = CliprecDataset(num_frm=3,ensemble_n_clips=4,num_labels=4,datadir='./fast_test_samples1.csv',videodir='./micro_video2', visual_feature_dir = './fast_video_feature')
 val_loader = DataLoader(dataset_val,batch_size=bsz,shuffle=False)
 
 # best_val_auc = 0
